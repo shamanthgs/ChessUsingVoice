@@ -19,15 +19,15 @@ const audioFilePath = path.join(
 export const transcribe = async () => {
   const fsReadStream = fs.createReadStream(audioFilePath);
 
-    const response = await openai.audio.transcriptions.create({
-      file: fsReadStream,
-      model: 'whisper-1',
-      prompt:
-        "file contains chess moves. transribe it in algebraic notation that is widely used in Portable Game Notation (PGN) Format.",
-      response_format: "verbose_json",
-    });
+  const response = await openai.audio.transcriptions.create({
+    file: fsReadStream,
+    model: "whisper-1",
+    prompt:
+      "file contains chess moves. transribe it in algebraic notation that is widely used in Portable Game Notation (PGN) Format.",
+    response_format: "verbose_json",
+  });
 
-    console.log(response.text, "response");
+  console.log(response.text, "response");
 };
 
 transcribe();
