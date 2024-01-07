@@ -19,15 +19,15 @@ const audioFilePath = path.join(
 export const transcribe = async () => {
   const fsReadStream = fs.createReadStream(audioFilePath);
 
-    const response = await openai.audio.transcriptions.create({
-      file: fsReadStream,
-      model: 'whisper-1',
-      prompt:
-        "file contains chess moves. transribe it in the format e4, e5, nf3, nf6, 0-0, 0-0-0",
-      response_format: "verbose_json",
-    });
+  const response = await openai.audio.transcriptions.create({
+    file: fsReadStream,
+    model: "whisper-1",
+    prompt:
+      "file contains chess moves. transribe it in the format e4, e5, nf3, nf6, 0-0, 0-0-0",
+    response_format: "verbose_json",
+  });
 
-    console.log(response.text, "response");
+  console.log(response.text, "response");
 };
 
 transcribe();
