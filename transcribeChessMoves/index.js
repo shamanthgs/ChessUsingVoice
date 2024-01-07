@@ -23,7 +23,7 @@ export const transcribe = async () => {
       file: fsReadStream,
       model: 'whisper-1',
       prompt:
-        "file contains chess moves. transribe it in the format e4, e5, nf3, nf6, 0-0, 0-0-0",
+        "file contains chess moves. transribe it in algebraic notation that is widely used in Portable Game Notation (PGN) Format.",
       response_format: "verbose_json",
     });
 
