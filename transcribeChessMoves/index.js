@@ -22,8 +22,7 @@ export const transcribe = async () => {
   const response = await openai.audio.transcriptions.create({
     file: fsReadStream,
     model: "whisper-1",
-    prompt:
-      "file contains chess moves. transribe it in algebraic notation that is widely used in Portable Game Notation (PGN) Format.",
+    prompt: process.env.TRANSCRIBE_PROMPT,
     response_format: "verbose_json",
   });
 
